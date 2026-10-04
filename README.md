@@ -1,85 +1,122 @@
 # Book Extractor
 
-A notebook-based project focused on extracting and working with book-related data. This repository currently contains a single Jupyter Notebook and is structured to support quick exploration, experimentation, and analysis in a reproducible environment.
+A lightweight Jupyter Notebook project for extracting book-related data from online sources. The notebook searches a topic on LibGen, pulls book titles, looks up rating information on Goodreads, and sorts the results by popularity and quality.
 
-## Repository Overview
+This repository is intentionally simple: it focuses on one notebook workflow and demonstrates how to gather bibliographic information from public web pages using Python.
 
-- Repository: `mohammad-shahwan/Book-Extractor`
-- Repository ID: `1404122097`
-- URL: https://github.com/mohammad-shahwan/Book-Extractor
-- Default branch: `main`
-- Visibility: Public
-- License: Not specified
-- Description: Not specified
-- Open issues: 0
-- Forks: 0
-- Stars: 0
+## What this project does
 
-## Project Summary
+The notebook in this repository can:
 
-This project is implemented primarily as a Jupyter Notebook, which means the main work is centered around interactive code execution, data processing, and analysis. The repository contains:
+- search LibGen for books based on a keyword or topic
+- extract book titles from search results
+- query Goodreads for matching titles
+- parse average ratings and number of ratings
+- rank books by rating and rating volume
+- collect download links for matching titles
+- save downloaded files into a local folder
 
-- `Books.ipynb` — the main notebook for the project
+In short, this project is a practical example of scraping and metadata collection for book discovery.
 
-## Language Composition
+## Repository contents
 
-The repository is composed of the following language distribution:
+- `Books.ipynb` — the main notebook containing the extraction workflow
+- `README.md` — project documentation
 
-- Jupyter Notebook: 100%
+## Why it exists
 
-This indicates the project is entirely notebook-driven and does not currently include additional primary language files in the root structure.
+This project is useful for learning and experimenting with:
 
-## Repository Structure
+- web scraping with Python
+- parsing HTML with BeautifulSoup
+- working with public metadata sources
+- notebook-based data collection workflows
+- building small research or recommendation tools
 
-```text
-Book-Extractor/
-├── Books.ipynb
-├── README.md
+## Requirements
+
+Before running the notebook, install the following:
+
+- Python 3
+- Jupyter Notebook or JupyterLab
+- `requests`
+- `beautifulsoup4`
+
+Install dependencies with:
+
+```bash
+pip install jupyter requests beautifulsoup4
 ```
 
-## Getting Started
+## Quick start
 
-### Prerequisites
+1. Clone the repository:
 
-- Python installed on your machine
-- Jupyter Notebook or JupyterLab
-- Optional: VS Code with Jupyter support
+```bash
+git clone https://github.com/mohammad-shahwan/Book-Extractor.git
+cd Book-Extractor
+```
 
-### Run the notebook
+2. Create and activate a virtual environment (optional but recommended):
 
-From the repository root, you can start Jupyter with:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+3. Install dependencies:
+
+```bash
+pip install jupyter requests beautifulsoup4
+```
+
+4. Launch the notebook:
 
 ```bash
 jupyter notebook Books.ipynb
 ```
 
-Or with JupyterLab:
+Or open it in JupyterLab:
 
 ```bash
 jupyter lab
 ```
 
-Then open `Books.ipynb` from the file navigator.
+## How the notebook works
 
-## Usage Notes
+The workflow is organized into a few key steps:
 
-- This repository is best suited for notebook-based exploration.
-- The code and workflow are centered in the notebook file rather than in traditional `.py` modules.
-- It is ideal for experimenting with extracted book data and analyzing patterns within the notebook environment.
+1. Search LibGen for a topic such as `Entrepreneurship`
+2. Extract book titles from the HTML results
+3. Search each title on Goodreads
+4. Extract the rating summary from Goodreads pages
+5. Filter out entries without valid ratings
+6. Sort the valid results by average rating
+7. Optionally collect download links and save files locally
 
-## Maintainer
+## Example use case
 
-- GitHub user: `mohammad-shahwan`
+The notebook currently demonstrates an `Entrepreneurship` search and then ranks the returned books by Goodreads rating. This makes it a useful example for exploring how books can be discovered and ranked from search results.
 
-## Additional Information
+## Important notes
 
-This repository was detected as a Jupyter Notebook project with a single notebook file, making it a lightweight and focused notebook-based repository. The project structure is intentionally simple and easy to open, run, and extend.
+- This project depends on external websites and their page structure. If those sites change, the scraper may need updates.
+- Some pages may not return metadata consistently, so the script may skip titles without valid ratings.
+- This repository is intended for educational, research, or experimentation purposes.
+- Please respect the terms of service and copyright policies of the sites you access.
 
----
+## Project status
 
-If you want, I can also tailor this README to a more specific theme such as:
+The repository is currently a notebook-based prototype focused on data extraction and ranking, with a simple workflow centered around `Books.ipynb`.
 
-- Data science / extraction workflow
-- Book metadata processing
-- Machine learning notebook documentation
-- A cleaner portfolio-style project README
+## License
+
+No explicit license file is included in the repository, so the project is currently unlicensed unless otherwise stated by the repository owner.
+
+## Author
+
+- Mohammad Shahwan
+
+## Contributing
+
+This is a small personal project, but suggestions and improvements are welcome. If you would like to improve the notebook or add more robust parsing logic, feel free to open an issue or submit a pull request.
